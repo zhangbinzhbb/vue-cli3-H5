@@ -1,6 +1,6 @@
 import * as type from './mutations_types'
 import { login } from 'api/index'
-import { Toast } from 'mint-ui';
+// import { Toast } from 'mint-ui';
 export default {
     namespaced: true,
     state: {
@@ -26,11 +26,11 @@ export default {
                     password: data.password
                 })
                 state.commit(type.LOGIN, res);
-                Toast({
-                    message: '登录成功',
-                    position: 'middle',
-                    duration: 2000
-                });
+                // Toast({
+                //     message: '登录成功',
+                //     position: 'middle',
+                //     duration: 2000
+                // });
                 setTimeout(() => {
                     const redirect = data.$route.query.redirect || '/';
                     data.$router.replace({

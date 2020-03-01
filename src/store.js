@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        direction:'forward'
+        direction: 'forward'
     },
     mutations: {
         updateDirection (state, direction) {
             state.direction = direction
-          }
+        }
     },
     actions: {}
 })

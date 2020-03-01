@@ -1,6 +1,7 @@
 <template>
     <section class="login">
-        <div class="top">
+        <van-button type="default">默认按钮</van-button>
+        <!-- <div class="top">
             您好，请登录
         </div>
         <div class="list userNameBox">
@@ -14,7 +15,7 @@
         <div class="btnBox">
         <button @click="loginBtn" class="loginBtn">登录</button>
 
-        </div>
+        </div> -->
     </section>
 </template>
 
@@ -23,9 +24,6 @@
 import {
     mapActions
 } from 'vuex';
-import {
-    Toast
-} from 'mint-ui';
 export default {
     name: 'login',
     data() {
@@ -41,11 +39,11 @@ export default {
         ...mapActions('login', ['login']),
         loginBtn() {
             if (this.username === '' || this.password === '') {
-                Toast({
-                    message: '请输入账号或密码',
-                    position: 'middle',
-                    duration: 2000
-                });
+                // Toast({
+                //     message: '请输入账号或密码',
+                //     position: 'middle',
+                //     duration: 2000
+                // });
             } else {
                 this.login({
                     username: this.username,

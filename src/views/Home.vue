@@ -16,7 +16,7 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
 import { getIndex } from 'api/index';
-import { Toast } from 'mint-ui'
+
 export default {
     name: 'home',
     components: {
@@ -25,13 +25,7 @@ export default {
     async created() {
         try {
             await getIndex({ pageSiza: 100, num: 10 });
-        } catch (err) {
-            Toast({
-                message: '这里是home页面的error提示',
-                position: 'bottom',
-                duration: 2000
-            });
-        }
+        } catch (err) {}
     },
     mounted() {
     },
@@ -40,11 +34,6 @@ export default {
             try {
                 await getIndex({ pageSiza: 100, num: 10 });
             } catch (err) {
-                Toast({
-                    message: '这里是home页面状态码不为200的error提示',
-                    position: 'bottom',
-                    duration: 7000
-                });
                 console.log('err', err);
             }
         }

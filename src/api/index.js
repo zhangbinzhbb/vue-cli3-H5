@@ -1,11 +1,24 @@
-import { get, post } from '@/axios/http.js'
-function getIndex (params) {
-    return get('/mock/5cb48c7ed491cd741c54456f/base/index', params)
+import request from '@/utils/request'
+
+export function login(data) {
+    return request({
+        url: '/vue-element-admin/user/login',
+        method: 'post',
+        data
+    })
 }
-function login(params) {
-    return post('/mock/5cb48c7ed491cd741c54456f/base/login', params)
+
+export function getInfo(token) {
+    return request({
+        url: '/vue-element-admin/user/info',
+        method: 'get',
+        params: { token }
+    })
 }
-export {
-    getIndex,
-    login
+
+export function logout() {
+    return request({
+        url: '/vue-element-admin/user/logout',
+        method: 'post'
+    })
 }

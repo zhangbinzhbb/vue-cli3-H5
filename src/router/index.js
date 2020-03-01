@@ -1,52 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import store from 'store/index'
+import routes from './routes'
 Vue.use(Router)
-const router = new Router({
-    routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: Home,
-            meta: {
-                auth: false, // 是否需要登录
-                keepAlive: true // 是否缓存组件
-            }
-        },
-        {
-            path: '/about',
-            name: 'about',
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () =>
-                import(/* webpackChunkName: "about" */ './views/About.vue'),
-            meta: {
-                auth: true,
-                keepAlive: true
-            }
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: () =>
-                import(/* webpackChunkName: "login" */ './views/login.vue'),
-            meta: {
-                auth: false,
-                keepAlive: true
-            }
-        },
-        {
-            path: '*', // 未匹配到路由时重定向
-            redirect: '/',
-            meta: {
-                // auth: true,
-                // keepAlive: true
-            }
-        }
-    ]
-})
+
+const router = new Router({ routes })
 // 记录页面跳转历史，以此判断页面左滑跳转还是右滑跳转
 const history = window.sessionStorage
 history.clear()
@@ -92,4 +50,5 @@ router.beforeEach((to, from, next) => {
         next()
     }
 })
+
 export default router
